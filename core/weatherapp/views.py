@@ -28,8 +28,11 @@ def get_weather_data(city):
 
 
 def home_view(request):
-    if request.method == "GET":
+    template_name = 'weatherapp/home.html'
+
+    if request.method == "GET" and 'city' in request.GET:
         city = request.GET.get('city')
         context = get_weather_data(city)
-    template_name = 'weatherapp/home.html'
+    else:
+        context={}
     return render(request, template_name, context)
