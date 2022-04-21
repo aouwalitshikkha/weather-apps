@@ -31,7 +31,9 @@ BS4 and requests library can be installed in the same way.
 
 After completing the above steps, you can clone the repository to your local system. To do so, you will need to have the Git client installed on your system. You can then clone the repository by running the following command:
 
+```code
 git clone https://github.com/aouwalitshikkha/weather-apps.git
+```
 
 
 This will create a copy of the entire project on your local system. You can then change into the project directory.
