@@ -32,7 +32,9 @@ def home_view(request):
 
     if request.method == "GET" and 'city' in request.GET:
         city = request.GET.get('city')
-        context = get_weather_data(city)
+        results = get_weather_data(city)
+        context = {'results': results}
+        print(context)
     else:
         context={}
     return render(request, template_name, context)
