@@ -15,7 +15,7 @@ This will create the my_env directory if it doesn’t exist, and also create dir
 To begin using the virtual environment, it needs to be activated:
 
 ```python
-my_env/bin/activate
+my_env/Scripts/activate
 ```
 
 This will change your shell prompt to show the name of the virtual environment you’re currently using, which lets you know that it’s activated. For example, my_env/bin/activate will change your shell prompt to (my_env).
