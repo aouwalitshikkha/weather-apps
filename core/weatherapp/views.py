@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup as bs
+import json
+
 
 def get_weather_data(city):
     city = city.replace(' ','+')
@@ -21,6 +23,19 @@ def get_weather_data(city):
     # print(results)
     return results
 
+def weather_api(city):
+    api_key = '1187ffc7690886f66d0589689f2a01f0'
+    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric'
+    response = requests.get(url)
+    data = json.loads(response.text)
+    results = {}
+    results['lon'] = data['coord']['lon']
+    results['lat'] = data['coord']['lat']
+    results['name'] =data['name']
+    results['temp'] =data['main']['temp']
+    results['humidity'] =data['main']['humidity']
+    return results
+
 
 
 
@@ -34,7 +49,18 @@ def home_view(request):
         city = request.GET.get('city')
         results = get_weather_data(city)
         context = {'results': results}
-        print(context)
+        # print(context)
     else:
         context={}
     return render(request, template_name, context)
+
+
+
+def api_view(request):
+    if request.method == "POST" and 'city' in request.POST:
+        city = request.POST.get('city')
+        results = weather_api(city)
+        context = {'results':results}
+    else:
+        context= {}
+    return render(request, 'weatherapp/api.html', context)
