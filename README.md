@@ -58,5 +58,5 @@ There are two different apps here. The first one scrapes google for weather data
 
 
 ## Second Apps 
-Under Construction
+![Show weather data from Weather Api](Screenshot_2.jpg)
 
