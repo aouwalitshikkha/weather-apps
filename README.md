@@ -58,5 +58,18 @@ There are two different apps here. The first one scrapes google for weather data
 
 
 ## Second Apps 
+
+In Api Section we have used open weather map api. After Signed in grab api from https://home.openweathermap.org/api_keys 
+
+replace your api in the views file of weather app 
+
+```python
+# weatherapp/views.py
+# Line No: 26 replace the follwing vaule 
+
+api_key = '1187ffc7690886f66d0589689f2a01f0'
+```
+Here is the preview 
+
 ![Show weather data from Weather Api](Screenshot_2.jpg)
 
